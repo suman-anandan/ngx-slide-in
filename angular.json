@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-slide-in": {
+      "projectType": "library",
+      "root": "projects/ngx-slide-in",
+      "sourceRoot": "projects/ngx-slide-in/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-slide-in/tsconfig.lib.json",
+            "project": "projects/ngx-slide-in/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-slide-in/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-slide-in/src/test.ts",
+            "tsConfig": "projects/ngx-slide-in/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-slide-in/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-slide-in/tsconfig.lib.json",
+              "projects/ngx-slide-in/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-slide-in"
 }
