@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./ngx-slide-in.component.css'],
   template: `
 <ng-container>
-   <div [@openClose]="isOpen ? 'open' : 'closed'" class="sidenav">
+   <div [@openClose]="isOpen ? size : 'closed'" class="sidenav">
       <!-- Slide Header -->
       <div class="slide-header">
          <ng-content select="angular-slide-header"></ng-content>
@@ -20,36 +20,34 @@ import { Component, Input, OnInit } from '@angular/core';
          <ng-content select="angular-slide-footer"></ng-content>
       </div>
    </div>
-   <div *ngIf="isOpen" class="my-slide-overlay" (click)="OnOverlayClick()"></div>
+   <div [class.my-slide-overlay]="isOpen" [class.display-hide]="!isOpen" (click)="OnOverlayClick()"></div>
 </ng-container>
   `,
   animations: [
     trigger('openClose', [
-      state('open', style({
-        width: '75vw',
-        opacity: 1,
-      })),
-      state('closed', style({
-        width: '0px',
-        opacity: 0.8,
-      })),
-      transition('open => closed', [
-        animate('0.5s')
-      ]),
-      transition('closed => open', [
-        animate('0.4s')
-      ]),
+      state('*', style({ width: '0px', opacity: 0.8, })),
+      state('small', style({ width: '25%', opacity: 1, })),
+      state('medium', style({ width: '50%', opacity: 1, })),
+      state('large', style({ width: '75%', opacity: 1, })),
+      state('full', style({ width: '100%', opacity: 1, })),
+      state('closed', style({ width: '0px', opacity: 0.8, })),
+      transition('small => closed', [animate('0.5s')]),
+      transition('medium => closed', [animate('0.5s')]),
+      transition('large => closed', [animate('0.5s')]),
+      transition('full => closed', [animate('0.5s')]),
+      transition('closed => *', [animate('0.4s')]),
     ])
   ]
 })
 export class NgxSlideInComponent implements OnInit {
   @Input('staticDrop') staticDrop: boolean = false;
-  @Input('width') width: string = '75vw';
+  @Input('size') size: 'small' | 'medium' | 'large' | 'full' = 'large';
+  @Input('openOnLoad') openOnLoad: boolean = false;
   isOpen = false;
   constructor() { }
 
   ngOnInit() {
-
+    this.isOpen = this.openOnLoad;
   }
 
   OpenSlide(): void {
