@@ -1,27 +1,110 @@
-# AngularSlidein
+# AngularSlidePanel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 
-## Development server
+# ngx-slide-in (Angular slide panel)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Demo: https://codesandbox.io/s/angular-slider-panel-k4610
 
-## Code scaffolding
+## Dependencies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ * Angular 11+
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To add the slider to your Angular project:
+```
+npm install @ngx-slide-in
+```
 
-## Running unit tests
+Once installed, add the slider to your `app.module.ts`:
+```typescript
+import { NgxSlideInModule } from 'ngx-slide-in';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+...
 
-## Running end-to-end tests
+@NgModule({
+   ...
+   imports: [
+     ...
+    BrowserModule,
+    NgxSlideInModule,
+    BrowserAnimationsModule
+    ...
+   ],
+   ...
+})
+export class AppModule {}
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Sample usage
 
-## Further help
+Now you can use the slide panel component in your app components, for example in `app.component.ts`:
+```typescript
+import { NgxSlideInComponent } from 'ngx-slide-in';
+...
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@Component({...})
+export class AppComponent {
+   title = 'ngx-slde-in';
+  @ViewChild('mySlide') mySlide: NgxSlideInComponent;
+
+  OpenSlideIn() {
+    this.mySlide.OpenSlide();
+  }
+
+  CloseSlideIn() {
+    this.mySlide.CloseSlide();
+  }
+}
+```
+
+And in template file `app.component.html`:
+```html
+<div class="m-3">
+    <button type="button" (click)="OpenSlideIn()" class="btn btn-primary">Open Slide</button>
+</div>
+<ngx-slide-in #mySlide [staticDrop]="false" [openOnLoad]="true" size="full">
+    <angular-slide-header>
+        <div class="p-2">
+            <h3>Slide Heading</h3>
+        </div>
+    </angular-slide-header>
+    <angular-slide-content>
+        <div class="container">
+            <h5>Slide Content</h5>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </angular-slide-content>
+    <angular-slide-footer>
+        <div class="p-2">
+            <span class="pr-2"><button type="button" class="btn btn-primary">Save</button></span>
+            <button type="button" (click)="CloseSlideIn()" class="btn btn-secondary">Close</button>
+        </div>
+    </angular-slide-footer>
+</ngx-slide-in>
+```
+
+## License
+
+The project is licensed under the MIT license.
