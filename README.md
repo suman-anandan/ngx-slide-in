@@ -12,12 +12,12 @@ Demo: https://codesandbox.io/s/angular-slider-panel-k4610
 
 ## Installation
 
-To add the slider to your Angular project:
+To add the slide panel to your Angular project:
 ```
 npm install @ngx-slide-in
 ```
 
-Once installed, add the slider to your `app.module.ts`:
+Once installed, add the slide-in panel to your `app.module.ts`:
 ```typescript
 import { NgxSlideInModule } from 'ngx-slide-in';
 
