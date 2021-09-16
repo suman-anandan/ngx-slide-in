@@ -7,5 +7,6 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "keywords": ["angular", "slide", "panel", "slider panel", "nav panel", "overlay panel", "angular slide panel"]
 }
