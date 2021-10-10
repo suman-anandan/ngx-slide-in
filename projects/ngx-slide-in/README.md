@@ -8,7 +8,7 @@ Demo: https://codesandbox.io/s/angular-slider-panel-k4610
 
 ## Dependencies
 
- * Angular 11+
+ * Angular 11+ CLI
 
 ## Installation
 

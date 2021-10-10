@@ -1,6 +1,7 @@
 {
   "name": "ngx-slide-in",
-  "version": "0.0.10",
+  "version": "0.0.14",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^11.0.9",
     "@angular/core": "^11.0.9"
@@ -8,5 +9,13 @@
   "dependencies": {
     "tslib": "^2.0.0"
   },
-  "keywords": ["angular", "slide", "panel", "slider panel", "nav panel", "overlay panel", "angular slide panel"]
+  "keywords": [
+    "angular",
+    "slide",
+    "panel",
+    "slider panel",
+    "nav panel",
+    "overlay panel",
+    "angular slide panel"
+  ]
 }
