@@ -1,6 +1,6 @@
 # AngularSlidePanel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
 
 # ngx-slide-in (Angular slide panel)
 
@@ -8,13 +8,13 @@ Demo: https://codesandbox.io/s/angular-slider-panel-k4610
 
 ## Dependencies
 
- * Angular 11+ CLI
+ * Angular 6+
 
 ## Installation
 
 To add the slide panel to your Angular project:
 ```
-npm install @ngx-slide-in
+npm install ngx-slide-in
 ```
 
 Once installed, add the slide-in panel to your `app.module.ts`:

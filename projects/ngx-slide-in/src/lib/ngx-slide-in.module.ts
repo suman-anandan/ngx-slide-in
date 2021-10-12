@@ -5,8 +5,7 @@ import { NgxSlideInComponent } from './ngx-slide-in.component';
 
 @NgModule({
   declarations: [NgxSlideInComponent],
-  imports: [
-  ],
+  imports: [],
   exports: [NgxSlideInComponent]
 })
 export class NgxSlideInModule { }
